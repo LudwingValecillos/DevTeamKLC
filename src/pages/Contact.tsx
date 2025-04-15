@@ -1,0 +1,131 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+const Contact = () => {
+  window.scrollTo(0, 0);
+
+  return (
+    <div className="pt-24 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white min-h-screen">
+      {/* Hero Section */}
+      <section className="py-16 relative overflow-hidden">
+        {/* Burbujas animadas de fondo */}
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow delay-2000" />
+        </div>
+
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h1 className="text-5xl font-extrabold mb-4 text-white drop-shadow-md">
+              Contáctanos
+            </h1>
+            <p className="text-lg text-gray-300">
+              Estamos listos para ayudarte a hacer realidad tu proyecto. Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.
+            </p>
+          </div>
+
+          {/* Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: Mail,
+                title: "Email",
+                content: "contacto@devteam.com",
+                link: "mailto:contacto@devteam.com",
+              },
+              {
+                icon: Phone,
+                title: "Teléfono",
+                content: "+1 (555) 123-4567",
+                link: "tel:+15551234567",
+              },
+              {
+                icon: MapPin,
+                title: "Ubicación",
+                content: "Ciudad de México, México",
+                link: "https://maps.google.com",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-tr from-[#1e1e2f] to-[#2d2d44] rounded-2xl p-6 text-center shadow-xl border border-white/10 transition-transform transform hover:-translate-y-1 hover:shadow-2xl"
+              >
+                <div className="bg-white/10 rounded-full p-4 w-fit mx-auto mb-4 shadow-md">
+                  <item.icon className="h-8 w-8 text-blue-400" />
+                </div>
+                <h3 className="font-semibold text-lg text-white mb-2">{item.title}</h3>
+                <a
+                  href={item.link}
+                  className="text-blue-300 hover:text-white transition-colors"
+                >
+                  {item.content}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          {/* Contact Form */}
+          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl p-10 shadow-2xl border border-white/10">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold mb-2 text-white">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-white">
+                  Asunto
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                  placeholder="¿En qué podemos ayudarte?"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-white">
+                  Mensaje
+                </label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
+                  placeholder="Cuéntanos más sobre tu proyecto..."
+                ></textarea>
+              </div>
+              <Button
+                size="lg"
+                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-xl hover:opacity-90 transition-opacity hover:scale-[1.01]"
+              >
+                Enviar Mensaje
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Contact;
