@@ -1,9 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { sendEmail } from "@/utils/brevoServices.jsx"; // Asegurate de ajustar esta ruta
 
 const Contact = () => {
   window.scrollTo(0, 0);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(null);
+
+    try {
+      await sendEmail(formData);
+      setSuccess("Mensaje enviado correctamente ✅");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      setSuccess("Hubo un error al enviar el mensaje ❌");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="pt-24 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white min-h-screen">
@@ -21,7 +52,9 @@ const Contact = () => {
               Contáctanos
             </h1>
             <p className="text-lg text-gray-300">
-              Estamos listos para ayudarte a hacer realidad tu proyecto. Envíanos un mensaje y nos pondremos en contacto contigo lo antes posible.
+              Estamos listos para ayudarte a hacer realidad tu proyecto.
+              Envíanos un mensaje y nos pondremos en contacto contigo lo antes
+              posible.
             </p>
           </div>
 
@@ -31,19 +64,19 @@ const Contact = () => {
               {
                 icon: Mail,
                 title: "Email",
-                content: "contacto@devteam.com",
+                content: "ludwingvaldev@gmail.com",
                 link: "mailto:contacto@devteam.com",
               },
               {
                 icon: Phone,
                 title: "Teléfono",
-                content: "+1 (555) 123-4567",
-                link: "tel:+15551234567",
+                content: "+54 (11) 7368-0952",
+                link: "tel:+541173680952",
               },
               {
                 icon: MapPin,
                 title: "Ubicación",
-                content: "Ciudad de México, México",
+                content: "Buenos Aires, Argentina",
                 link: "https://maps.google.com",
               },
             ].map((item, index) => (
@@ -54,7 +87,9 @@ const Contact = () => {
                 <div className="bg-white/10 rounded-full p-4 w-fit mx-auto mb-4 shadow-md">
                   <item.icon className="h-8 w-8 text-blue-400" />
                 </div>
-                <h3 className="font-semibold text-lg text-white mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-lg text-white mb-2">
+                  {item.title}
+                </h3>
                 <a
                   href={item.link}
                   className="text-blue-300 hover:text-white transition-colors"
@@ -67,58 +102,94 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md rounded-2xl p-10 shadow-2xl border border-white/10">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold mb-2 text-white">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold mb-2 text-white"
+                  >
                     Nombre
                   </label>
                   <input
                     type="text"
                     id="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                     placeholder="Tu nombre"
+                    required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold mb-2 text-white">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-semibold mb-2 text-white"
+                  >
                     Email
                   </label>
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                     placeholder="tu@email.com"
+                    required
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold mb-2 text-white">
-                  Asunto
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-semibold mb-2 text-white"
+                >
+                  Teléfono
                 </label>
                 <input
                   type="text"
-                  id="subject"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
-                  placeholder="¿En qué podemos ayudarte?"
+                  placeholder="Ej: +54 911 1234 5678"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold mb-2 text-white">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-semibold mb-2 text-white"
+                >
                   Mensaje
                 </label>
                 <textarea
                   id="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-[#111827] text-white border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-gray-400"
                   placeholder="Cuéntanos más sobre tu proyecto..."
+                  required
                 ></textarea>
               </div>
+
+              {success && (
+                <p
+                  className={`text-sm font-medium ${
+                    success.includes("✅") ? "text-green-400" : "text-red-400"
+                  }`}
+                >
+                  {success}
+                </p>
+              )}
+
               <Button
                 size="lg"
+                type="submit"
                 className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-xl hover:opacity-90 transition-opacity hover:scale-[1.01]"
+                disabled={loading}
               >
-                Enviar Mensaje
+                {loading ? "Enviando..." : "Enviar Mensaje"}
               </Button>
             </form>
           </div>

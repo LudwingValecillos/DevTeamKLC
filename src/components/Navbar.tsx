@@ -34,12 +34,10 @@ const Navbar = () => {
           : "py-6 bg-transparent"
       }`}
     >
-      <div className="container px-4 mx-auto flex items-center justify-between">
+      <div className="container px-4 mx-auto flex items-center justify-between ">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-blue-400 flex items-center justify-center">
-            <span className="text-white font-bold text-lg">DT</span>
-          </div>
-          <span className="text-xl font-bold">DevTeam</span>
+          <img src="/src/assets/logo4.png" alt="" className="w-10 h-10" />
+          <span className="text-2xl text-foreground">OBJECTIVE</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

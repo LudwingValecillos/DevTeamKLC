@@ -13,11 +13,12 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Nuestros Servicios
+              Somos <span className="text-primary">OBJECTIVE</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Ofrecemos soluciones integrales de desarrollo para ayudar a las
-              empresas a prosperar en el entorno digital.
+              Ofrecemos servicios de desarrollo web personalizado para empresas
+              y personas individuales. Con tecnologías de vanguardia, ofrecemos
+              soluciones escalables y eficientes que crecen con tu negocio.
             </p>
           </div>
         </div>

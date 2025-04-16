@@ -24,6 +24,7 @@ const Home = () => {
     { number: "24/7", label: "Soporte Técnico" },
   ];
 
+  window.scrollTo(0, 0); // Scroll to top on page load
   const features = [
     {
       icon: Monitor,
