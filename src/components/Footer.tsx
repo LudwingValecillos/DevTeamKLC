@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail, MapPin, PhoneCall } from "lucide-react";
+import logo from "@/assets/logo4.png"; 
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <img src="/src/assets/logo4.png" alt="" className="w-10 h-10" />
+              <img src={logo} alt="" className="w-10 h-10" />
               <span className="text-2xl text-foreground">OBJECTIVE</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-6">

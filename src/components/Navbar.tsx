@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo4.png"; 
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,7 +37,7 @@ const Navbar = () => {
     >
       <div className="container px-4 mx-auto flex items-center justify-between ">
         <Link to="/" className="flex items-center gap-2">
-          <img src="/src/assets/logo4.png" alt="" className="w-10 h-10" />
+          <img src={logo} alt="" className="w-10 h-10" />
           <span className="text-2xl text-foreground">OBJECTIVE</span>
         </Link>
 
