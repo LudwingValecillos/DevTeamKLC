@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { sendEmail } from "@/utils/brevoServices.jsx"; // Asegurate de ajustar esta ruta
 
 const Contact = () => {
-  window.scrollTo(0, 0);
 
   const [formData, setFormData] = useState({
     name: "",
