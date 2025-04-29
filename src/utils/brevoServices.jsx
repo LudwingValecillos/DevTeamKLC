@@ -1,4 +1,4 @@
-const BREVO_API_KEY = process.env.REACT_APP_BREVO_API_KEY;
+const BREVO_API_KEY = import.meta.env.VITE_BREVO_API_KEY;
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
 
 export const sendEmail = async (formData) => {

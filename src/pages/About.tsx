@@ -3,6 +3,8 @@ import TeamMemberCard from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { CheckCircle, Github, Users, Target, Heart, Zap } from "lucide-react";
+import imgCamilo from "@/assets/camilo.jpg";
+import imgLucio from "@/assets/lucio.jpg";
 
 const About = () => {
   const teamMembers = [
@@ -55,8 +57,7 @@ const About = () => {
       name: "Camilo Rodriguez",
       role: "Full-Stack Developer",
       bio: "Estudiante de Analista Programador Universitario en la Universidad Nacional de La Plata, con más de 2 años de experiencia desarrollando aplicaciones web. Trabajo con tecnologías modernas tales como JavaScript, TypeScript, React.js, Next.js, Astro, Zustand, Supabase, TailwindCSS y Node.js, enfocándome en crear aplicaciones pensando principalmente en el usuario, pero sin olvidar la eficacia y la escalabilidad. Cuento con un nivel de inglés acorde al mercado, lo que me permite comprender documentación técnica y colaborar en equipos internacionales. Como hobby, disfruto del desarrollo de videojuegos con Godot, lo que me permite experimentar con lógica creativa y diseño interactivo.",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4D35AQHFKQXGQf2mrg/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1726219653135?e=1744750800&v=beta&t=aYnvET_twMXdth1PF5ZUzsWwb0zaA0qCiAFbvKfx1no",
+      image: imgCamilo,
       skills: [
         "NextJs",
         "Desarrollo Web enfocado en Frontend",
@@ -77,8 +78,7 @@ const About = () => {
       name: "Lucio Morales",
       role: "Full-Stack Developer",
       bio: "Desarrollador Fullstack. En mi mente, como desarrollador web, los problemas representan un desafío. Aprendí a desempeñarme en mi campo usando las tecnologías más poderosas del mercado actual para brindar las mejores soluciones a los clientes y usuarios. Mi fuerte como programador es el análisis de requerimientos para lograr un desarrollo de sitios web modernos, eficientes y fáciles de usar para sus visitantes, enfocado en potenciar mi desempeño en Frontend.",
-      image:
-        "https://media.licdn.com/dms/image/v2/D4D03AQGDJGtvEvnAWA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1702493080985?e=1749686400&v=beta&t=JuHc_JYgNtuMFSuL5KWS5ot79BPMVLvukaseN2wk4DM",
+      image: imgLucio,
       skills: ["Javascript", "React Js", "Node Js", "Express Js"],
       github: "https://github.com/rodrigocamilo",
       linkedin: "https://www.linkedin.com/in/lucio-morales/",
